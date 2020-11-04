@@ -22,8 +22,10 @@ class RosesController < ApplicationController
     # Index
      get '/roses' do #index route 
     # if logged_in?
+    @user = User.find_by_id(session[:user_id])
+    @roses = Rose.all
       if !session[:user_id].nil?
-      @user = current_user
+      #@user = current_user
       erb :'roses/index'
     else 
       redirect '/'
@@ -32,16 +34,16 @@ class RosesController < ApplicationController
     # make a get request to '/roses'
     #make a get request to '/roses/:id'
 get '/roses/:id' do 
-    if logged_in?
-      @Rose = Rose.find_by_id(params[:id])
-      if session[:user_id] == @rose.user_id 
-        erb :'roses/show'
-        else 
-          redirect '/roses' 
-      end 
-    else 
-      redirect '/login'
-    end 
+    #if 
+      @rose = Rose.find_by_id(params[:id])
+    #   if session[:user_id] == @rose.user_id 
+         erb :'roses/show'
+    #     else 
+    #       redirect '/roses' 
+    #   end 
+    # #else 
+    #   redirect '/login'
+    #end 
   end  
         
      get '/roses/:id/edit' do

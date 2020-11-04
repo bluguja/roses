@@ -2,6 +2,7 @@
 # ROSE APP
 Welcome to the roses app. This app was created so as the use can interact seamlessly with the app.the app...
 
+
 ## Restful Routes and CRUD Actions
 
 REST => Representation State Transfer => set of conventions for structuring our ROUTES and mapping them to CRUD actions (Create, Read, Update, Delete).
