@@ -1,0 +1,47 @@
+<h1>Roses</h1>
+
+<!-- <% @roses.each do |rose| %>
+    <h2><%= rose.title %> </h2>
+    <p><%= rose.description %> </p>
+    <img src="<%= rose.image %> " alt="rose">
+    <% end %> -->
+
+    <% if flash[:error] %>
+    <h2 style="color:yellow;"><%= flash[:error] %></h2>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h2 style="color:white;"><%= flash[:notice] %></h2>
+<% end %>
+
+
+<div class="main">
+<div style="text-align: right;">
+    <a href="/logout" class="button">Log Out</a>
+</div>
+    <ul>
+        <li> <a href="/home" class="button">Home</a></li>
+        <li> <a href="/roses" class="button">My Roses List</a></li>
+    </ul>   
+</div>
+
+ 
+<div style="text-align: center;">
+    <h1>M Y </h1>
+    <h2>ROSES APPLICATION</h2>  
+    <h1>L I S T </h1>  
+</div>
+
+<div style="text-align: center;">
+
+
+<% @user.roses.each do |rose| %>
+    <h1><a href="/roses/<%= rose.id %>"><%= rose.rose_name %></a></h1>
+<% end %> 
+
+
+
+ <a href="/roses/new" class="block">Add Roses Here:</a>
+   
+ </div>

@@ -1,0 +1,54 @@
+<% if flash[:error] %>
+    <h2 style="color:blue;"><%= flash[:error] %></h2>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h2 style="color:white;"><%= flash[:notice] %></h2>
+<% end %>
+
+<div class="main">
+<div style="text-align: right;">
+<a href="/logout" class="button">Log Out</a>
+</div>
+    <ul>
+        <li> <a href="/home" class="button">Home</a></li>
+        <li> <a href="/roses" class="button">My Rose List</a></li>
+  
+  
+    </ul>
+   
+</div>
+
+  <div style="text-align: center;">
+
+<h1><p style = "font-family:Verdana,arial,helvetica;">
+ I would like to Update this rose data!
+  </p>
+  </h1>
+
+
+ 
+<fieldset>
+<form action="/roses/<%= @rose.id %>" method="POST" >
+<input type="hidden" id="hidden" name="_method" value="patch">
+
+<br><label>rose Rose Name</label>
+    <hr><input type="text" name="Rose Title" value="<%= @rose.rose_name %>">
+    <p>  </p>
+
+     <label>rose Description</label>
+     <hr><input type="text" name="Rose Description" value="<%= @rose.description %>">
+     <p>  </p>
+
+     <label>Image of Rose Flower</label>
+     <hr><input type="text" name="Images of Rose" value="<%= @rose.image %>">
+     <p>  </p>
+     
+    <br>
+    <p>  </p>
+
+<input type="submit" class="button" value="Submit">
+    </form>
+
+    </div>

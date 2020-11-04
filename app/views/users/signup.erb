@@ -1,0 +1,36 @@
+<% if flash[:error] %>
+    <h2 style="color:blue;"><%= flash[:error] %></h2>
+<% end %>
+
+
+<% if flash[:notice] %>
+    <h2 style="color:white;"><%= flash[:notice] %></h2>
+<% end %>
+
+<header>
+  <h1><p style = "font-family:Verdana,arial,helvetica;">
+  Welcome to the Roses App Signin Page
+  </p>
+  </h1>
+
+</header> 
+
+
+<form method="POST" action="/signup">
+    
+    <hr><label>username</label>
+    <hr><input type="text" name="username">
+    <p>  </p>
+    <hr><label>password</label>
+    <hr><input type="password" name="password">
+    <p>  </p>
+      <input type="checkbox" id="check" name="check" value="terms">
+<label for="check"> By signing up, you agree to our Terms, Data Policy and Cookies Policy.</label><br>
+    
+          <hr><button type="submit" class="button" value="submit">Signup</button>
+    <h3> Have an account? 
+    <br><a href="/login" class="button">Log in</a>
+
+
+   </form>
+ 
