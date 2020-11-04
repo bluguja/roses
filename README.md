@@ -22,9 +22,9 @@ REST => Representation State Transfer => set of conventions for structuring our 
 
 ## Installation
 
-    1. Navigate to the repo on GitHub at MY GITHUB URL
+    1. Navigate to the repo on GitHub at https://github.com/bluguja/roses/tree/master
     2. Fork and clone repo to your local machine.
-    3. Click the green Clone or Download button and copy the remote URL.
+    3. Click the green Clone or Download button and copy the remote https://github.com/bluguja/roses/tree/master
     4. Type git clone then paste the copied URL into your terminal.
     5. Type 'bundle install' to install dependencies. 
 
@@ -39,5 +39,5 @@ From there, you can create your personal BookGenie reading lists, add roses, edi
 https://github.com/ComputerScienceWarrior/lms
 ## Code of Conduct
 
-Everyone interacting in the Rose app project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the : MY GITHUB URL
+Everyone interacting in the Rose app project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the :https://github.com/bluguja/roses/tree/master
 
