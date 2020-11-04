@@ -34,7 +34,7 @@ REST => Representation State Transfer => set of conventions for structuring our 
     2. Run 'shotgun' from your command line. Then you can go to your browser and view the application.
     3. Visit localhost:[port-number] (the port number will be specified after running shotgun).
 
-From there, you can create your personal BookGenie reading lists, add roses, edit roses and delete roses! Make sure to listen to our bomb reading playlist to jam along to while you get your inner reading book worm on!
+From there, you can create your personal Roses  lists, add roses, edit roses and delete roses! 
 
 https://github.com/ComputerScienceWarrior/lms
 ## Code of Conduct
