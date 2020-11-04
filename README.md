@@ -36,11 +36,7 @@ REST => Representation State Transfer => set of conventions for structuring our 
 
 From there, you can create your personal BookGenie reading lists, add roses, edit roses and delete roses! Make sure to listen to our bomb reading playlist to jam along to while you get your inner reading book worm on!
 
-### License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-MIT © https://github.com/sandienunez 
-s
+https://github.com/ComputerScienceWarrior/lms
 ## Code of Conduct
 
 Everyone interacting in the Rose app project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the : MY GITHUB URL
