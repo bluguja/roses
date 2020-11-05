@@ -1,2 +1,9 @@
 
+<h1>Rose Description: <%= @rose.description %></h1>
+<a href="/roses/<%= @rose.id %>/edit" class="block">Edit This Rose</a>
 
+
+<form action="/roses/<%= @rose.id %>" method="POST">  
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Rose">
+</form>

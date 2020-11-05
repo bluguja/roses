@@ -9,14 +9,13 @@ class RosesController < ApplicationController
     # create
     # make a post request to '/roses'
     post '/roses' do
-    redirect_if_not_logged_in
-    @rose = current_user.roses.build(rose_name: params["Rose Name"], rose_type: params["Type of Rose"], description: params["Description of Type"], image: params["Image of Flower"])
-
-      if @rose.save
-        redirect "/roses/#{@rose.id}"
+  
+    @rose = Rose.create(rose_name: params[:rose_name], rose_type: params[:rose_type], description: params[:description], image: params[:image], user_id: session[:user_id])
+  
+      if @rose.nil?
+        redirect "/roses/new"
       else
-        redirect '/roses/new'
-        binding.pry
+        redirect "/roses/#{@rose.id}"
       end 
   end
 # READ
@@ -48,19 +47,22 @@ get '/roses/:id' do
   end  
         
      get '/roses/:id/edit' do
-    if logged_in?
-      @user = current_user
       @rose = Rose.find_by_id(params[:id])
-      erb :'roses/edit'
-      if authorized_to_edit?(@rose)
-        erb :'roses/edit'
-      else
-        flash[:error] = "Editing Prohibited !"
-        redirect '/roses'
-      end
-    else
-      redirect '/login'
-    end
+      erb :'/roses/edit'
+     
+    # if 
+    #   @user = current_user
+    #   @rose = Rose.find_by_id(params[:id])
+    #   erb :'roses/edit'
+    #   if authorized_to_edit?(@rose)
+    #     erb :'roses/edit'
+    #   else
+    #     flash[:error] = "Editing Prohibited !"
+    #     redirect '/roses'
+    #   end
+    # else
+    #   redirect '/login'
+    # end
   end
 
 
@@ -68,28 +70,37 @@ get '/roses/:id' do
     # Edit
     # Make a get request to '/roses/:id/edit'
 patch '/roses/:id' do
-    if logged_in?
-      @rose = Rose.find_by_id(params[:id])
-      Rose.update(rose_name: params["Rose Name"], rose_type: params["Type of Rose"], description: params["Description of Type"], image: params["Image of Flower"])
-      redirect "/roses/#{rose.id}"
-    else 
-      flash[:error] = "This Data Cannot be Edited! "
-      redirect "/"
-    end 
+    @user = User.find_by_id(session[:user_id])
+    @rose = Rose.find_by_id(params[:id])
+
+     @rose.update(rose_name: params[:rose_name], rose_type: params[:rose_type], description: params[:description], image: params[:image])
+    redirect "/roses/#{@rose.id}"
+    # if logged_in?
+    #   @rose = Rose.find_by_id(params[:id])
+    #   Rose.update(rose_name: params["Rose Name"], rose_type: params["Type of Rose"], description: params["Description of Type"], image: params["Image of Flower"])
+    #   redirect "/roses/#{rose.id}"
+    # else 
+    #   flash[:error] = "This Data Cannot be Edited! "
+    #   redirect "/"
+    # end 
   end
     
 # Destroy
     #make a delete request to '/roses/:id'
      delete '/roses/:id' do
-      redirect_if_not_logged_in
+
       @rose = Rose.find_by_id(params[:id])
-      if authorized_to_edit?(rose)
-        @rose.destroy 
-        redirect '/roses'
-      else
-        redirect '/home'
-      end
-  end    
+      @rose.delete
+      redirect '/roses'
+      # redirect_if_not_logged_in
+      # @rose = Rose.find_by_id(params[:id])
+      # if authorized_to_edit?(rose)
+      #   @rose.delete 
+      #   redirect '/roses'
+      # else
+      #   redirect '/home'
+      # end
+     end
 end
 
 

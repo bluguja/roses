@@ -25,7 +25,7 @@ get '/home' do
     # if logged_in?
     if !session[:user_id].nil?
       @roses = current_user.roses
-        erb :welcome
+        erb :"home"
       else
         flash[:notice] = "Welcome!"
         redirect to "/"
