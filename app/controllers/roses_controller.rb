@@ -3,7 +3,7 @@ class RosesController < ApplicationController
 # CREATE
     # New get '/roses/new' = called NEW ACTION, renders new view
      get '/roses/new' do
-      redirect_if_not_logged_in 
+     # redirect_if_not_logged_in 
       erb :'roses/new'
   end                 
     # create
@@ -16,6 +16,7 @@ class RosesController < ApplicationController
         redirect "/roses/#{@rose.id}"
       else
         redirect '/roses/new'
+        binding.pry
       end 
   end
 # READ
@@ -68,7 +69,7 @@ get '/roses/:id' do
     # Make a get request to '/roses/:id/edit'
 patch '/roses/:id' do
     if logged_in?
-      Rose = Rose.find_by_id(params[:id])
+      @rose = Rose.find_by_id(params[:id])
       Rose.update(rose_name: params["Rose Name"], rose_type: params["Type of Rose"], description: params["Description of Type"], image: params["Image of Flower"])
       redirect "/roses/#{rose.id}"
     else 
@@ -81,9 +82,9 @@ patch '/roses/:id' do
     #make a delete request to '/roses/:id'
      delete '/roses/:id' do
       redirect_if_not_logged_in
-      rose = Book.find_by_id(params[:id])
+      @rose = Rose.find_by_id(params[:id])
       if authorized_to_edit?(rose)
-        rose.destroy 
+        @rose.destroy 
         redirect '/roses'
       else
         redirect '/home'

@@ -1,6 +1,7 @@
 
 # ROSE APP
-Welcome to the roses app. This app was created so as the use can interact seamlessly with the app.the app...
+Welcome to the roses app. This app was created so as the use can interact seamlessly with the app.The app is supposes to be updated with types of roses
+that the user has in mind. The method to do that is shown in the 'Usage' section of this README
 
 
 ## Restful Routes and CRUD Actions
