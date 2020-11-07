@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     end
   end 
     #prevent login form from showing if user is already logged in
-#render my login form to user 
+    #render my login form to user 
     
   post '/login' do
     #receive data (params) from the login form
@@ -26,17 +26,17 @@ class SessionsController < ApplicationController
       #add success message to flash hash
       redirect '/roses'
     else
-      flash[:error] = "Invalid Username or Password. Please try again!" 
-      
       #show error message
       #this is where my error message will display (at the login route)
-      redirect '/login'
+      flash[:error] = "Invalid Username or Password. Please try again!" 
+      
       #redirecting back to login page
+      redirect '/login'
+      
       end 
     end
     
   get '/logout' do 
-    # if logged_in?
   
       session.clear
       flash[:notice] = "Success at log out!"
