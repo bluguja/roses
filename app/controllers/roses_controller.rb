@@ -33,17 +33,14 @@ class RosesController < ApplicationController
   end
     # make a get request to '/roses'
     #make a get request to '/roses/:id'
-get '/roses/:id' do 
-    #if 
-      @rose = Rose.find_by_id(params[:id])
-    #   if session[:user_id] == @rose.user_id 
-         erb :'roses/show'
-    #     else 
-    #       redirect '/roses' 
-    #   end 
-    # #else 
-    #   redirect '/login'
-    #end 
+  get '/roses/:id' do  
+    @rose = Rose.find_by_id(params[:id])
+    if (@rose.nil?)
+      redirect "/roses"    
+    else
+      erb :'/roses/show'
+    end
+    
   end  
         
      get '/roses/:id/edit' do
@@ -79,7 +76,7 @@ patch '/roses/:id' do
     #   @rose = Rose.find_by_id(params[:id])
     #   Rose.update(rose_name: params["Rose Name"], rose_type: params["Type of Rose"], description: params["Description of Type"], image: params["Image of Flower"])
     #   redirect "/roses/#{rose.id}"
-    # else 
+     #else 
     #   flash[:error] = "This Data Cannot be Edited! "
     #   redirect "/"
     # end 

@@ -19,17 +19,15 @@
 
 
         <ul>
-             
-            <% if Helpers.is_logged_in?(session) %>
-              #edit button
-              #create roses button
-              <li><a href="/logout">Logout</a></li>
-              
-            <% else %>
+          <% if session[:user_id] != nil %>
+                <% @user = User.find_by_id(session[:user_id])%>
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/roses">All Roses</a></li>
+          <% else %>
               <li><a href="/signup" class="button">Sign up</a></li>
-              <li> <a href="/login" class="button">Log in</a><li>
-            <% end %>
-          </ul>   
+              <li> <a href="/login" class="button">Log in</a></li>
+          <% end %>
+        </ul>   
 
 
 

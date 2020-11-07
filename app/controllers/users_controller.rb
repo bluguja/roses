@@ -16,6 +16,7 @@ end
       @user = User.new(username: params[:username], password: params[:password])
     if @user.save #how you validate if user gives all info 
       session[:user_id] = @user.id 
+      
 #session is hash
       flash[:notice] = "Thanks for signing up #{@user.username}!"
       redirect '/home' 
@@ -23,4 +24,11 @@ end
       redirect '/'   
     end
   end
+
+  get '/users/:id' do  
+    @user = User.find_by_id(params[:id])
+    # binding.pry
+    erb :'/users/show'
+  end 
+
 end
