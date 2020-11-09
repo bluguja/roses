@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     #prevent login form from showing if user is already logged in
     #render my login form to user 
     
-  post '/login' do
+    post '/login' do
     #receive data (params) from the login form
     @user = User.find_by(username: params[:username].strip)
     
