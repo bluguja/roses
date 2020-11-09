@@ -19,13 +19,13 @@ class RosesController < ApplicationController
       end 
     end
     # READ
-    # Index
+    
     get '/roses' do #index route 
     # if logged_in?
     @user = User.find_by_id(session[:user_id])
     @roses = Rose.all
         if !session[:user_id].nil?
-        #@user = current_user
+        
         erb :'roses/index'
       else 
         redirect '/'
